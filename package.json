@@ -1,0 +1,33 @@
+{
+  "name": "salam-react",
+  "version": "1.0.0",
+  "description": "installing npm in react project",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aneeshaik/react-learning.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Andrew",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aneeshaik/react-learning/issues"
+  },
+  "homepage": "https://github.com/Aneeshaik/react-learning#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "browserslist":[
+    "last 2 versions"
+  ]
+}
