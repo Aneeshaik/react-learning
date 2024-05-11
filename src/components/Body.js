@@ -3,8 +3,11 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 const Body = () => {
     const [listItems, setListItems] = useState([]);
+    const [filteredList, setFilteredList] = useState([]);
+    const [searchValue, setSearchValue] = useState("");
+    console.log("Body Rendered");
     useEffect(()=>{
-        console.log("Effect rendered");
+        // console.log("Effect rendered");
         fetchData();
     }, [])
     const fetchData = async() => {
@@ -13,25 +16,33 @@ const Body = () => {
         const jsonData = await data.json();
         // console.log(jsonData);
         setListItems(jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setFilteredList(jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
-    if(listItems.length === 0){
-        return <Shimmer />
-    }
-    return (
+ 
+    return listItems.length === 0? <Shimmer /> : (
         <div className="body">
-            <div className="search" style={{padding: "10px"}}>Search</div>
             <div className="filter-items">
+                <input className="search-box" type="search" value={searchValue} onChange={(e) => {
+                    setSearchValue(e.target.value);
+                }}></input>
+                <button className="filtered-search" onClick={() => {
+                    const filetredSearch = listItems.filter(
+                        (rest) => rest.info.name.toLowerCase().includes(searchValue.toLowerCase())
+                    )
+                    setFilteredList(filetredSearch);
+                    // console.log(listItems);
+                }}>Search</button>
+                {/* {console.log(listItems)} */}
                 <button type="button" className="filter-res" onClick={() => {
                     const filteredItems = listItems.filter(
-                        (res) => res.info.avgRating >= 4
+                        (res) => res.info.avgRating >= 4.2
                     )
-                    setListItems(filteredItems);
-                    console.log(filteredItems);
+                    setFilteredList(filteredItems);
+                    // console.log(listItems);
                 }}>Top Rated Restuarents</button>
             </div>
-            {console.log(listItems.length)}
             <div className="card-container">
-                {listItems.map((rest) => (
+                {filteredList.map((rest) => (
                     <Card key={rest.info.id} resData = {rest}/>
                 ))}
             </div>

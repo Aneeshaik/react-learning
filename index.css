@@ -49,3 +49,10 @@ li{
     height: 250px;
     width: 200px;
 }
+.filter-items{
+    margin: 0 auto;
+    width: 50%;
+}
+.filtered-search, .filter-res{
+    margin: 10px;
+}
