@@ -56,3 +56,8 @@ li{
 .filtered-search, .filter-res{
     margin: 10px;
 }
+.user{
+    border: black 1px solid;
+    padding-left: 5px;
+    margin: 0px;
+}
