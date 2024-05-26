@@ -6,7 +6,7 @@ const Body = () => {
     const [listItems, setListItems] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
     const [searchValue, setSearchValue] = useState("");
-    console.log("Body Rendered");
+    // console.log("Body Rendered");
     useEffect(()=>{
         // console.log("Effect rendered");
         fetchData();
