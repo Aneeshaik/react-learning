@@ -25,7 +25,7 @@ class UserClass extends React.Component{
         // console.log(json);
     }
     componentWillUnmount(){
-        clearInterval(this.timer)
+        clearInterval(this.timer) // to stop timer when we to other page
     }
     render(){
         // const {count, count2} = this.state;

@@ -1,10 +1,11 @@
-import React, { StrictMode } from "react"
+import React, { StrictMode, Suspense, lazy } from "react"
 import ReactDOM from "react-dom/client"
 import Head from "./components/Header"
 import Body from "./components/Body"
 import About from "./components/About"
 import Contact from "./components/Contact"
 import Error from "./components/Error"
+//import Grocery from "./components/Grocery"
 import RestuarantMenu from "./components/RestuarantMenu"
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 
@@ -16,6 +17,7 @@ const AppComponent = () => {
         </div>
     )
 }
+const Grocery = lazy(()=> import("./components/Grocery"));
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const appRouter = createBrowserRouter([
     {
@@ -33,6 +35,10 @@ const appRouter = createBrowserRouter([
             {
                 path: '/contact',
                 element: <Contact />
+            },
+            {
+                path: '/grocery',
+                element: <Suspense fallback={"Loading...."}><Grocery /></Suspense>
             },
             {
                 path: '/restuarantmenu/:resId',
