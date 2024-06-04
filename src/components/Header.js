@@ -9,22 +9,22 @@ const Head = () => {
         console.log("Use effect called");
     }, [])
     return (
-        <div className="header">
-        <div className="logo">
+        <div className="header flex justify-between">
+        <div className="logo w-24">
             <img className="main-logo" alt="logo" src = {LOGO_URL} />
         </div>
-        <div className="nav-items">
-            <ul>
-                <li>
+        <div className="flex items-center">
+            <ul className="flex p-4 m-4">
+                <li className="m-4">
                     {onlineStatus ? "Online ✅" : "Offline ❌"}
                 </li>
 
-                <li><Link to = "/">Home</Link></li>
-                <li><Link to = "/about">About Us</Link></li>
-                <li><Link to = "/contact">Contact Us</Link></li>
-                <li><Link to = "/grocery">Grocery Items</Link></li>
-                <li>Cart</li>
-                <button className="login" onClick={() => {
+                <li className="m-4"><Link to = "/">Home</Link></li>
+                <li className="m-4"><Link to = "/about">About Us</Link></li>
+                <li className="m-4"><Link to = "/contact">Contact Us</Link></li>
+                <li className="m-4"><Link to = "/grocery">Grocery Items</Link></li>
+                <li className="m-4">Cart</li>
+                <button className="login m-4" onClick={() => {
                     loginBtn === "LogIn"? setLoginBtn("LogOut") : setLoginBtn("LogIn");
                 }}>{loginBtn}</button>
             </ul>
