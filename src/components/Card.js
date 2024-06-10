@@ -12,4 +12,16 @@ const Card = (props) => {
         </div>
     )
 }
+
+//higher order compponents
+export const withPromotedLabel = (Card) => {
+    return (props) => {
+        return(
+            <div>
+                <label>Promoted</label>
+                <Card {...props}/>
+            </div>
+        )
+    }
+}
 export default Card;

@@ -32,5 +32,6 @@
   },
   "browserslist": [
     "last 2 versions"
-  ]
+  ],
+  "main": "tailwind.config.js"
 }
