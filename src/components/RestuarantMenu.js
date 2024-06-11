@@ -18,7 +18,7 @@ const RestuarantMenu = () => {
     // console.log(itemInfo);
     return (
         <div className="text-center">
-            <h1>{resCards.name}</h1>
+            <h1 className="font-bold">{resCards.name}</h1>
             <p>{resCards.cuisines} - {resCards.costForTwoMessage}</p>
             <h2>Menu</h2>
             <ul>
