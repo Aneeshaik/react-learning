@@ -1,10 +1,13 @@
 import {LOGO_URL} from "../utils/constants"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import {Link} from "react-router-dom"
 import useOnlineStatus from "../utils/useOnlineStatus"
+import UserContext from "../utils/UserContext"
 const Head = () => {
     const [loginBtn, setLoginBtn] = useState("LogIn");
     const onlineStatus = useOnlineStatus();
+    const {loggedInUser} = useContext(UserContext)
+    // console.log(loggedInUser);
     useEffect(() => {
         console.log("Use effect called");
     }, [])
@@ -27,6 +30,7 @@ const Head = () => {
                 <button className="login m-4" onClick={() => {
                     loginBtn === "LogIn"? setLoginBtn("LogOut") : setLoginBtn("LogIn");
                 }}>{loginBtn}</button>
+                <li className="m-4">{loggedInUser}</li>
             </ul>
         </div>   
         </div>

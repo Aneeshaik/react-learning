@@ -1,4 +1,5 @@
 import React from "react"
+import UserContext from "../utils/UserContext";
 class UserClass extends React.Component{
     constructor(props){
         super(props)
@@ -17,7 +18,7 @@ class UserClass extends React.Component{
         const userData = await fetch("https://api.github.com/users/aneeshaik")
         const json = await userData.json();
         this.timer = setInterval(() => {
-            console.log("Timer")
+            // console.log("Timer")
         }, 1000)
         this.setState({
             userInfo : json
@@ -44,6 +45,11 @@ class UserClass extends React.Component{
             <h3>Name: {login}</h3>
             <h4>location : {location}</h4>
             <h4>aneesahmad@gmail.com</h4>
+            <div>
+                <UserContext.Provider>
+                    {(data) => console.log(data)}
+                </UserContext.Provider>
+            </div>
         </div>
         )
     }
