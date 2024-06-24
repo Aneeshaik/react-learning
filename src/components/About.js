@@ -1,5 +1,6 @@
 import User from "./User";
 import UserClass from "./UserClass";
+import UserContext from "../utils/UserContext";
 const About = () => {
     return (
         <div>

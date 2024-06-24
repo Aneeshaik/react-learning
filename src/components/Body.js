@@ -1,8 +1,9 @@
 import Card from "./Card"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 const Body = () => {
     const [listItems, setListItems] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
@@ -13,6 +14,7 @@ const Body = () => {
         // console.log("Effect rendered");
         fetchData();
     }, [])
+    const {setUserName, loggedInUser} = useContext(UserContext)
     const fetchData = async() => {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.6287557&lng=79.4191795&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         // console.log(data);
@@ -45,6 +47,9 @@ const Body = () => {
                     setFilteredList(filteredItems);
                     // console.log(filteredList);
                 }}>Top Rated Restuarents</button>
+                <input className="search-box border border-solid border-black rounded-md ml-2" type="search" value={loggedInUser} onChange={(e)=>{
+                    setUserName(e.target.value)
+                }}></input>
             </div>
             <div className="card-container flex flex-wrap">
                 {/* {console.log(filteredList)} */}

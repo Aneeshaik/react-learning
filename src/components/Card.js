@@ -1,5 +1,8 @@
 import {IMG_URL} from "../utils/constants"
+import { useContext } from "react"
+import UserContext from "../utils/UserContext"
 const Card = (props) => {
+    const {loggedInUser} = useContext(UserContext)
     const {resData} = props
     const {name, cuisines, costForTwo, avgRating} = resData?.info
     return (
@@ -9,6 +12,7 @@ const Card = (props) => {
             <h5 className="cuisine">{cuisines.join(", ")}</h5>
             <h5 className="food-rating">{costForTwo}</h5>
             <h5 className="food-rating">{avgRating} Star</h5>
+            <h5 className="food-user">User: {loggedInUser}</h5>
         </div>
     )
 }

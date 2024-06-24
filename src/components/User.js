@@ -5,7 +5,7 @@ const User = (props) => {
     const [count2] = useState(3);
     useEffect(() => {
         const timer = setInterval(() => {
-            console.log("functional timer");
+            // console.log("functional timer");
         }, 1000);
         return() => {
             clearInterval(timer); // to stop timer when we move to other page.
