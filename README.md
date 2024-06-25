@@ -1,1 +1,1 @@
-Namaste react by Akhshay Saini - Didn't pushed episode 2 to 4 in github - let's recap episodes 2 to 4 - Episode2(Igniting our app) - about parcel features, executing our app in server, configuration of packageLock.json, browserList dependency - Episode3(Laying the foundation) - Introducing JSX, Components, about JSX featues - Episode4(Talk is Cheap, Show the Code) - Introducing props, config driven UI, map function
+Diving deap into react with Namaste react by Akhshay Saini 
