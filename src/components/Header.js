@@ -3,10 +3,13 @@ import { useState, useEffect, useContext } from "react"
 import {Link} from "react-router-dom"
 import useOnlineStatus from "../utils/useOnlineStatus"
 import UserContext from "../utils/UserContext"
+import { useSelector } from "react-redux"
 const Head = () => {
     const [loginBtn, setLoginBtn] = useState("LogIn");
     const onlineStatus = useOnlineStatus();
     const {loggedInUser} = useContext(UserContext)
+    const cartItems = useSelector((store) => store.cart.items)
+    console.log(cartItems);
     // console.log(loggedInUser);
     useEffect(() => {
         console.log("Use effect called");
@@ -26,7 +29,7 @@ const Head = () => {
                 <li className="m-4"><Link to = "/about">About Us</Link></li>
                 <li className="m-4"><Link to = "/contact">Contact Us</Link></li>
                 <li className="m-4"><Link to = "/grocery">Grocery Items</Link></li>
-                <li className="m-4">Cart</li>
+                <li className="m-4"><Link to = "/cart">Cart - {cartItems.length} items</Link></li>
                 <button className="login m-4" onClick={() => {
                     loginBtn === "LogIn"? setLoginBtn("LogOut") : setLoginBtn("LogIn");
                 }}>{loginBtn}</button>

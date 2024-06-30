@@ -15,7 +15,7 @@ const RestuarantMenu = () => {
     const categories = resInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
         (cat) => cat.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     )
-    console.log(categories);
+    // console.log(categories);
     // console.log(resCards);
     // console.log(itemInfo);
     return (
@@ -28,10 +28,9 @@ const RestuarantMenu = () => {
                 <li key={item.card.info.id}>{item.card.info.name}</li>
             ))} */}
             {categories.map((cat, index) => (
-                <div>
+                <div key={index}>
                 {/* <li className="font-bold">{cat.card?.card?.title}</li> */}
-                <li><RestuarantCategory key={cat?.card?.card.title} data={cat?.card?.card} showItems={index === showItems? true:false} setShowItems={() => {setShowItems(index)}}/></li>
-
+                <li><RestuarantCategory data={cat?.card?.card} showItems={index === showItems? true:false} setShowItems={() => {setShowItems(index)}}/></li>
                 </div>
             ))}
             </ul>
