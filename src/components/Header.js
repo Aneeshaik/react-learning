@@ -9,10 +9,10 @@ const Head = () => {
     const onlineStatus = useOnlineStatus();
     const {loggedInUser} = useContext(UserContext)
     const cartItems = useSelector((store) => store.cart.items)
-    console.log(cartItems);
+    // console.log(cartItems);
     // console.log(loggedInUser);
     useEffect(() => {
-        console.log("Use effect called");
+        // console.log("Use effect called");
     }, [])
     return (
         <div className="header flex justify-between">
