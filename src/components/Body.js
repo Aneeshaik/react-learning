@@ -26,10 +26,10 @@ const Body = () => {
     if(onlineStatus === false){
         return <h1>You are offline</h1>
     }
-    return listItems.length === 0? <Shimmer /> : (
+    return listItems.length === 0? (<Shimmer /> ) : (
         <div className="body">
             <div className="filter-items">
-                <input className="search-box border border-solid border-black rounded-md ml-2" type="search" value={searchValue} onChange={(e) => {
+                <input data-testid="searchInput" className="search-box border border-solid border-black rounded-md ml-2" type="search" value={searchValue} onChange={(e) => {
                     setSearchValue(e.target.value);
                 }}></input>
                 <button className="filtered-search bg-gray-400 rounded-md px-2 py-[2px] m-4" onClick={() => {
