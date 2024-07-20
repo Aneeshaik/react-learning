@@ -44,6 +44,7 @@ it("should render search button", async () => {
         )
     })
     const restCards = screen.getAllByTestId("rests");
+    // console.log(restCards);
     expect(restCards.length).toBe(8);
 })
 
@@ -57,9 +58,21 @@ it("should show two cards when type table", async () => {
     })
     const searchBtn = screen.getByRole("button", {name : "Search"})
     const inputBox = screen.getByTestId("searchInput")
-    fireEvent.change(inputBox, { target: { value: "table" } });
+    fireEvent.change(inputBox, { target: { value: "subway" } });
     fireEvent.click(searchBtn)
     const restCards = screen.getAllByTestId("rests");
     // console.log(restCards);
     expect(restCards.length).toBe(1);
+})
+
+it("should render top restuarents", async () => {
+    await act(async() => {
+        render(
+            <BrowserRouter>
+                <Body />
+            </BrowserRouter>
+        )
+    })
+    const topRatedBtn = screen.getByRole("button", {name:"Top Rated Restuarents"})
+    expect(topRatedBtn).toBeInTheDocument();
 })
